@@ -34,6 +34,7 @@ public class ReadOperation {
 
             result.close();
             stmt.close();
+            System.out.println("Statement Closed Successfully");
             con.close();
             System.out.println("Connection Closed Successfully...");
 
