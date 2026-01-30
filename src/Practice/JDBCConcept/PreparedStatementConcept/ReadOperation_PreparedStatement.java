@@ -22,7 +22,7 @@ public class ReadOperation_PreparedStatement {
             System.out.println("Connection Successful...");
 
             PreparedStatement pstmt = con.prepareStatement(readQuery);
-            pstmt.setString(1,"java");
+            pstmt.setString(1,"SAP");
             pstmt.setFloat(2, 60000);
             ResultSet rs=pstmt.executeQuery();
 
