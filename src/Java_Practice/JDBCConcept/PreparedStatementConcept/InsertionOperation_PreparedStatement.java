@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class InsertionOperation_PreparedStatement {
     public static void main(String[] args) {
@@ -26,10 +27,20 @@ public class InsertionOperation_PreparedStatement {
             Connection con = DriverManager.getConnection(url, userName, password);
             System.out.println("Connection successfull....");
             PreparedStatement pstmt = con.prepareStatement(insertQuery);
-            pstmt.setInt(1, 7);
-            pstmt.setString(2, "Anurag");
-            pstmt.setString(3, "SAP");
-            pstmt.setString(4, "45000.230");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the new studentId: ");
+            int id=sc.nextInt();
+            System.out.println("Enter the Student Name: ");
+            String name=sc.next();
+            System.out.println("Enter the domain: ");
+            String domain=sc.next();
+            System.out.println("Enter the annualFees: ");
+            float donation=sc.nextFloat();
+
+            pstmt.setInt(1, id);
+            pstmt.setString(2, name);
+            pstmt.setString(3, domain);
+            pstmt.setFloat(4, donation);
 
             int rows = pstmt.executeUpdate();
             if (rows>0){
